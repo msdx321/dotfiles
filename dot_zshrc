@@ -31,6 +31,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+## Init tmux
 zinit snippet PZT::modules/tmux/init.zsh
 
 ## Setup ssh
@@ -44,6 +45,7 @@ export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit snippet PZT::modules/history/init.zsh
 
 zinit wait lucid for \
   OMZ::lib/git.zsh \
@@ -55,11 +57,12 @@ zinit wait lucid for \
   OMZ::plugins/sudo/sudo.plugin.zsh \
   PZT::modules/directory/init.zsh \
   PZT::modules/helper/init.zsh \
-  PZT::modules/history/init.zsh \
-  MohamedElashri/exa-zsh \
+  MohamedElashri/eza-zsh \
   chrissicool/zsh-256color \
+  hlissner/zsh-autopair \
   wookayin/fzf-fasd \
   zdharma-continuum/zui \
+  zsh-users/zsh-autosuggestions \
   atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
@@ -75,4 +78,3 @@ zinit for \
   zsh-users/zsh-completions
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
