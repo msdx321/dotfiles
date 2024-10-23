@@ -57,7 +57,7 @@ zinit wait lucid for \
   PZT::modules/directory/init.zsh \
   PZT::modules/helper/init.zsh \
   PZT::modules/history/init.zsh \
-  MohamedElashri/exa-zsh \
+  MohamedElashri/eza-zsh \
   chrissicool/zsh-256color \
   wookayin/fzf-fasd \
   zdharma-continuum/zui \
