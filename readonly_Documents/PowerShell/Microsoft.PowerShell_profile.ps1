@@ -21,6 +21,7 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
     Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
     Set-PSReadLineOption -EditMode Emacs
     Set-PSReadLineOption -PredictionSource History
+    $PSStyle.FileInfo.Directory = "`e[34m"
 
     # Configure PSFzf options
     Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
