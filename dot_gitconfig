@@ -11,7 +11,3 @@
 [alias]
 	ll = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%an, %cr)' --abbrev-commit
 	permission-reset = !git diff -p -R --no-color | grep -E \"^(diff|(old|new) mode)\" --color=never | git apply
-[commit]
-	gpgsign = true
-[gpg]
-	format = ssh
