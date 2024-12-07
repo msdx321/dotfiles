@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jasonccox/vim-wayland-clipboard'
 call plug#end()
 
 " My Own Config
@@ -24,6 +25,7 @@ let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_show_diagnostics_ui = 0
 map <C-n> :NERDTreeToggle<CR>
 map <F8> :call ToggleMouse()<CR>
+set clipboard=unnamedplus,unnamed
 set encoding=utf-8
 set mouse=a
 set number
