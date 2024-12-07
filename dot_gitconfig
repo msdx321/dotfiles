@@ -15,3 +15,5 @@
 	gpgsign = true
 [gpg]
 	format = ssh
+[push]
+	autoSetupRemote = true

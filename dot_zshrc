@@ -45,6 +45,8 @@ export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit snippet PZT::modules/history/init.zsh
+zinit light wookayin/fzf-fasd
 
 zinit wait lucid for \
   OMZ::lib/git.zsh \
@@ -56,10 +58,8 @@ zinit wait lucid for \
   OMZ::plugins/sudo/sudo.plugin.zsh \
   PZT::modules/directory/init.zsh \
   PZT::modules/helper/init.zsh \
-  PZT::modules/history/init.zsh \
   MohamedElashri/eza-zsh \
   chrissicool/zsh-256color \
-  wookayin/fzf-fasd \
   zdharma-continuum/zui \
   atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
