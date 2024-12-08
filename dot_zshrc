@@ -44,6 +44,9 @@ export EDITOR="vim"
 ## Add ~/.local/bin/ to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+## Setup thefuck
+export THEFUCK_EXCLUDE_RULES='fix_file'
+
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet PZT::modules/history/init.zsh
 zinit light wookayin/fzf-fasd
@@ -60,6 +63,7 @@ zinit wait lucid for \
   PZT::modules/helper/init.zsh \
   MohamedElashri/eza-zsh \
   chrissicool/zsh-256color \
+  laggardkernel/zsh-thefuck \
   zdharma-continuum/zui \
   atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
