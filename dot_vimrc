@@ -8,7 +8,6 @@ endif
 " plugs install
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'junegunn/vim-easy-align'
 Plug 'lambdalisue/vim-suda'
 Plug 'scrooloose/nerdtree'
