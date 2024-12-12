@@ -18,8 +18,9 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zstyle ':prezto:module:tmux:auto-start' local 'no'
-zstyle ':prezto:module:tmux:auto-start' remote 'no'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:session' name 'orb'
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
