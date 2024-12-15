@@ -19,7 +19,6 @@ autoload -Uz _zinit
 ### Basic Configuration
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-zstyle ':prezto:module:tmux:session' name 'orb'
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 zstyle :omz:plugins:ssh-agent quiet yes
 
