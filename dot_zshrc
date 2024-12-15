@@ -25,6 +25,9 @@ zstyle :omz:plugins:ssh-agent quiet yes
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
 
+## Use emacs keybinds
+set -o emacs
+
 ### Load tmux module first
 zinit snippet PZT::modules/tmux/init.zsh
 
