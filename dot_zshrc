@@ -60,6 +60,7 @@ zinit wait lucid for \
   MohamedElashri/eza-zsh \
   chrissicool/zsh-256color \
   hlissner/zsh-autopair \
+  laggardkernel/zsh-thefuck \
   wookayin/fzf-fasd \
   zdharma-continuum/zui \
   zsh-users/zsh-autosuggestions \
