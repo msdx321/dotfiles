@@ -10,6 +10,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'junegunn/vim-easy-align'
 Plug 'lambdalisue/vim-suda'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
@@ -21,8 +25,6 @@ call plug#end()
 colorscheme Tomorrow-Night-Eighties
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
-let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-let g:ycm_show_diagnostics_ui = 0
 map <C-n> :NERDTreeToggle<CR>
 map <F8> :call ToggleMouse()<CR>
 set clipboard=unnamedplus,unnamed
