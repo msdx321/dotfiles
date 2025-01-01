@@ -12,6 +12,18 @@ profiles:
     id: local:custom:zsh:2f874b5c-af5a-4c6e-8f91-e58b9d57c1ce
     name: arch
     group: a80c0d39-5b81-4567-acbf-b73226aa1ab7
+  - type: local
+    icon: fas fa-terminal
+    options:
+      command: orb
+      args:
+        - '-m'
+        - Gentoo
+      env: {}
+      cwd: /Users/msdx321
+    name: gentoo
+    group: a80c0d39-5b81-4567-acbf-b73226aa1ab7
+    id: local:custom:gentoo:57d92ffb-eca5-4596-8e3a-65e4cb2517ca
 groups:
   - id: a80c0d39-5b81-4567-acbf-b73226aa1ab7
     name: OrbStack
@@ -264,3 +276,4 @@ vault:
   iv: 5424707d7f4db2d2fa41afbb45b1ebdf
 configSync:
   parts: {}
+recoverTabs: false
