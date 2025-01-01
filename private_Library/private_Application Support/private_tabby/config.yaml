@@ -1,0 +1,266 @@
+version: 7
+profiles:
+  - type: local
+    icon: fas fa-terminal
+    options:
+      command: orb
+      args:
+        - '-m'
+        - Arch
+      env: {}
+      cwd: /Users/msdx321
+    id: local:custom:zsh:2f874b5c-af5a-4c6e-8f91-e58b9d57c1ce
+    name: arch
+    group: a80c0d39-5b81-4567-acbf-b73226aa1ab7
+groups:
+  - id: a80c0d39-5b81-4567-acbf-b73226aa1ab7
+    name: OrbStack
+hotkeys:
+  toggle-window:
+    - Ctrl-T
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - ⌘-C
+  paste:
+    - ⌘-V
+  clear:
+    - ⌘-K
+  select-all:
+    - ⌘-A
+  zoom-in:
+    - ⌘-=
+    - ⌘-Shift-=
+  zoom-out:
+    - ⌘--
+    - ⌘-Shift--
+  reset-zoom:
+    - ⌘-0
+  home:
+    - ⌘-Left
+    - Home
+  end:
+    - ⌘-Right
+    - End
+  previous-word:
+    - ⌥-Left
+  next-word:
+    - ⌥-Right
+  delete-previous-word:
+    - ⌥-Backspace
+  delete-line:
+    - ⌘-Backspace
+  delete-next-word:
+    - ⌥-Delete
+  search:
+    - ⌘-F
+  pane-focus-all:
+    - ⌘-Shift-I
+  focus-all-tabs:
+    - ⌘-⌥-Shift-I
+  scroll-to-top:
+    - Shift-PageUp
+  scroll-up:
+    - ⌥-PageUp
+  scroll-down:
+    - ⌥-PageDown
+  scroll-to-bottom:
+    - Shift-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab: {}
+  settings:
+    - ⌘-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - ⌘-T
+  new-window:
+    - ⌘-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - Ctrl+⌘+F
+  close-tab:
+    - ⌘-W
+  reopen-tab:
+    - ⌘-Shift-T
+  toggle-last-tab: []
+  rename-tab:
+    - ⌘-R
+  next-tab:
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - ⌘-Shift-Left
+  move-tab-right:
+    - ⌘-Shift-Right
+  rearrange-panes:
+    - Ctrl-Shift
+  tab-1:
+    - ⌘-1
+  tab-2:
+    - ⌘-2
+  tab-3:
+    - ⌘-3
+  tab-4:
+    - ⌘-4
+  tab-5:
+    - ⌘-5
+  tab-6:
+    - ⌘-6
+  tab-7:
+    - ⌘-7
+  tab-8:
+    - ⌘-8
+  tab-9:
+    - ⌘-9
+  tab-10: []
+  duplicate-tab: []
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  explode-tab:
+    - ⌘-Shift-.
+  combine-tabs:
+    - ⌘-Shift-,
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - ⌘-Shift-D
+  split-bottom:
+    - ⌘-D
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - ⌘-⌥-Right
+  pane-nav-down:
+    - ⌘-⌥-Down
+  pane-nav-up:
+    - ⌘-⌥-Up
+  pane-nav-left:
+    - ⌘-⌥-Left
+  pane-nav-previous:
+    - ⌘-⌥-[
+  pane-nav-next:
+    - ⌘-⌥-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - ⌘-⌥-Enter
+  close-pane:
+    - ⌘-Shift-W
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  profile-selector:
+    - ⌘-E
+  switch-profile:
+    - ⌘-Shift-E
+  command-selector:
+    - ⌘-Shift-P
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: Tomorrow Night Eighties
+    foreground: '#cccccc'
+    background: '#2d2d2d'
+    cursor: '#cccccc'
+    colors:
+      - '#000000'
+      - '#f2777a'
+      - '#99cc99'
+      - '#ffcc66'
+      - '#6699cc'
+      - '#cc99cc'
+      - '#66cccc'
+      - '#ffffff'
+      - '#000000'
+      - '#f2777a'
+      - '#99cc99'
+      - '#ffcc66'
+      - '#6699cc'
+      - '#cc99cc'
+      - '#66cccc'
+      - '#ffffff'
+  customColorSchemes: []
+  altIsMeta: true
+  font: MesloLGM Nerd Font Mono
+  profile: local:binzsh
+  copyOnSelect: true
+ssh:
+  knownHosts:
+    - host: contact.mpi-sws.org
+      port: 22
+      type: rsa-sha2-256
+      digest: Ou0WtV9tWAQ271uji/av+PP5PyGHiiJ2ph3TFublSx4=
+    - host: tock.mpi-sws.org
+      port: 22
+      type: rsa-sha2-256
+      digest: gUKeGbOxN04T90ZUOL/M1iUY7I+GnD1nnbSUvlXqwZw=
+    - host: rts-pi4-2.mpi-sws.org
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: cB762Bs1Gb96EXkKWoMbeU7E+HY9ENN7SsztCcTmvYM=
+clickableLinks: {}
+accessibility: {}
+appearance: {}
+hacks: {}
+providerBlacklist: []
+commandBlacklist: []
+enableAnalytics: false
+enableWelcomeTab: false
+pluginBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+trzszPlugin:
+  enableDragUpload: true
+  defaultDownloadPath: /Users/msdx321/Downloads
+  defaultUploadPath: /Users/msdx321/Downloads
+syncConfig:
+  gist: 880653b4bd387b8e946ab987f116765f
+  lastSyncTime: '2025-01-01 05:45:17'
+  encryption: true
+profileBlacklist:
+  - local:bincsh
+  - local:bindash
+  - local:binksh
+  - local:default
+  - socket:template
+  - serial:port-devtty-debug-console
+  - serial:port-devtty-Bluetooth-Incoming-Port
+  - serial:template
+  - local:binsh
+  - ssh:template
+  - local:bintcsh
+  - telnet:template
+vault:
+  version: 1
+  contents: >-
+    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
+  keySalt: e598b3525b82e434
+  iv: 5424707d7f4db2d2fa41afbb45b1ebdf
+configSync:
+  parts: {}
