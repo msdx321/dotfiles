@@ -24,10 +24,10 @@ set-option -g renumber-windows on
 bind % split-window -h -c "#{pane_current_path}"
 bind '"' split-window -v -c "#{pane_current_path}"
 
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") }}
+{{if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
 # Set copy on select
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "wl-copy -p"
-{{- end }}
+{{- end}}
 
 # Enable TrueColor
 set-option -sa terminal-overrides ',xterm-256color:RGB'
