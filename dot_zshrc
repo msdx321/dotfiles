@@ -76,7 +76,9 @@ zinit wait lucid for \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   wookayin/fzf-fasd \
-  zdharma-continuum/zui \
+  zdharma-continuum/zui
+
+zinit wait lucid for \
   atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
