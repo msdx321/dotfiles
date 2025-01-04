@@ -76,20 +76,15 @@ zinit wait lucid for \
   hlissner/zsh-autopair \
   laggardkernel/zsh-thefuck \
   wookayin/fzf-fasd \
-  zdharma-continuum/zui
-
-zinit wait lucid for \
-  atinit"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
+  zdharma-continuum/zui \
   atinit"zmodload zsh/curses" \
     zdharma-continuum/zinit-console \
-  atload"zicompinit; zicdreplay" \
-    blockf \
-    lucid \
-    wait \
-  zsh-users/zsh-completions
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  blockf \
+    zsh-users/zsh-completions \
+  atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 # Load Powerlevel10k configuration if it exists
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
