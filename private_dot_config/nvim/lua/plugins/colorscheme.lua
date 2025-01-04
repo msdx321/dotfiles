@@ -8,5 +8,13 @@ return {
     opts = {
       colorscheme = "base16-tomorrow-night-eighties",
     },
+  },
+
+  -- Configure Lualine to load base16
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      theme = "base16",
+    },
   }
 }
