@@ -3,24 +3,22 @@ profiles:
   - type: local
     icon: fas fa-terminal
     options:
-      command: orb
-      args:
-        - '-m'
-        - Arch
+      command: ssh
       env: {}
       cwd: /Users/msdx321
+      args:
+        - Arch@orb
     id: local:custom:zsh:2f874b5c-af5a-4c6e-8f91-e58b9d57c1ce
     name: arch
     group: a80c0d39-5b81-4567-acbf-b73226aa1ab7
   - type: local
     icon: fas fa-terminal
     options:
-      command: orb
-      args:
-        - '-m'
-        - Gentoo
       env: {}
       cwd: /Users/msdx321
+      command: ssh
+      args:
+        - Gentoo@orb
     name: gentoo
     group: a80c0d39-5b81-4567-acbf-b73226aa1ab7
     id: local:custom:gentoo:57d92ffb-eca5-4596-8e3a-65e4cb2517ca
@@ -221,6 +219,7 @@ terminal:
   font: MesloLGM Nerd Font Mono
   profile: local:binzsh
   copyOnSelect: true
+  rightClick: 'off'
 ssh:
   knownHosts:
     - host: contact.mpi-sws.org
