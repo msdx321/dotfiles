@@ -37,7 +37,12 @@ export FZF_TMUX=1
 export FZF_TMUX_OPTS='-p80%'
 export PATH="$HOME/.local/bin:$PATH"
 
-## Use emacs keybinds
+### Alias
+if [[ -n "$(command -v nvim)" ]]; then
+    alias vim="nvim"
+fi
+
+### Use emacs keybinds
 set -o emacs
 
 ### Load tmux module first
