@@ -1,0 +1,40 @@
+{{- if eq .chezmoi.os "darwin" -}}
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+# This won't be added again if you remove it.
+Include ~/.orbstack/ssh/config
+
+{{ end -}}
+Host mpi-gitlab
+    HostName gitlab.mpi-sws.org
+    User git-rtw
+    IdentityFile ~/.ssh/mpi_key
+    IdentitiesOnly yes
+
+Host contact-mpi
+    HostName contact.mpi-sws.org
+    User biteye
+    IdentityFile ~/.ssh/mpi_key
+
+Host mpi-proxy
+    HostName contact.mpi-sws.org
+    User biteye
+    DynamicForward 8890
+    ExitOnForwardFailure yes 
+    IdentityFile ~/.ssh/mpi_key
+    RequestTTY no 
+    LogLevel QUIET 
+
+Host tock-mpi
+    HostName tock.mpi-sws.org
+    User biteye
+    IdentityFile ~/.ssh/mpi_key
+    Port 22
+    ProxyJump contact-mpi
+
+Host pi4-2-mpi
+    HostName rts-pi4-2.mpi-sws.org
+    User biteye
+    IdentityFile ~/.ssh/mpi_key
+    Port 22
+    ProxyJump contact-mpi

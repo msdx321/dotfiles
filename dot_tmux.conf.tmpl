@@ -1,0 +1,93 @@
+# ---------------------
+# General Settings
+# ---------------------
+
+# Change prefix key
+set -g mode-keys vi
+set -g status-keys vi
+
+# Enable mouse support
+set -g mouse on
+unbind -n MouseDown3Pane
+
+# Set base index for windows and panes
+set -g base-index 1
+set -g pane-base-index 1
+
+# Change escape delay
+set -sg escape-time 10
+
+# Auto renumbering of windows
+set-option -g renumber-windows on
+
+# Bindings for splitting panes in the current path
+bind % split-window -h -c "#{pane_current_path}"
+bind '"' split-window -v -c "#{pane_current_path}"
+
+# Enable TrueColor
+set-option -sa terminal-overrides ',xterm-256color:RGB'
+
+# Enable OSC-52 clipboard
+set -s set-clipboard on
+
+# Auto Set Title Names
+set -g set-titles on
+set -g set-titles-string '#{host_short} - #{pane_current_command}'
+
+# ---------------------
+# Status Bar Settings
+# ---------------------
+
+# General status bar configuration
+set -g status on
+set -g status-justify left
+set -g status-style none,bg=colour236
+set -g status-left-length 100
+set -g status-right-length 100
+
+# Status bar appearance
+set -g status-left "#[fg=colour235,bg=colour109,bold] #S #[fg=colour109,bg=colour236,nobold,nounderscore,noitalics]"
+set -g status-right "#[fg=colour239,bg=colour236,nobold,nounderscore,noitalics]#[fg=colour250,bg=colour239] %Y-%m-%d  %H:%M #[fg=colour109,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour235,bg=colour109] #h "
+
+# Message style
+set -g message-style fg=colour250,bg=colour239
+set -g message-command-style fg=colour250,bg=colour239
+
+# Pane border styles
+set -g pane-border-style fg=colour239
+set -g pane-active-border-style fg=colour109
+
+# ---------------------
+# Window Settings
+# ---------------------
+
+# Window status styles
+setw -g window-status-style none,fg=colour250,bg=colour236
+setw -g window-status-activity-style none
+setw -g window-status-separator ""
+
+# Window status format
+setw -g window-status-format "#[fg=colour250,bg=colour236] #I #[fg=colour250,bg=colour236] #W "
+setw -g window-status-current-format "#[fg=colour236,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour250,bg=colour239] #I #[fg=colour250,bg=colour239] #W #[fg=colour239,bg=colour236,nobold,nounderscore,noitalics]"
+
+# ---------------------
+# TPM
+# ---------------------
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'b0o/tmux-autoreload'
+set -g @plugin 'graemedavidson/tmux-pane-focus'
+set -g @plugin 'idevtier/tmux-cargo'
+set -g @plugin 'jaclu/tmux-power-zoom'
+set -g @plugin 'laktak/extrakto'
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+set -g @plugin 'sainnhe/tmux-fzf'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-cowboy'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
