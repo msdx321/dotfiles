@@ -1,0 +1,26 @@
+packages:
+  darwin:
+    brews:
+    - 'entr'
+    - 'eza'
+    - 'fasd'
+    - 'fd'
+    - 'fzf'
+    - 'git'
+    - 'lazygit'
+    - 'lua'
+    - 'luarocks'
+    - 'neofetch'
+    - 'neovim'
+    - 'node'
+    - 'rage'
+    - 'ripgrep'
+    - 'ruff'
+    - 'thefuck'
+    - 'tldr'
+    - 'tmux'
+    - 'uv'
+    - 'zsh'
+    casks:
+    - 'tabby'
+
