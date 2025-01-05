@@ -1,0 +1,44 @@
+{{ if or (eq .osid "linux-arch") (eq .osid "linux-archarm") -}}
+#!/bin/bash
+
+sudo pacman -Syu --noconfirm
+sudo pacman -S --needed --noconfirm base-devel
+
+git clone https://aur.archlinux.org/paru.git ~/paru
+cd ~/paru
+cat << 'EOF' > paru.patch
+diff --git a/PKGBUILD b/PKGBUILD
+index f503694..6289b7e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,6 +9,7 @@ backup=("etc/paru.conf")
+ arch=('i686' 'pentium4' 'x86_64' 'arm' 'armv7h' 'armv6h' 'aarch64')
+ license=('GPL-3.0-or-later')
+ makedepends=('cargo')
++makedepends_aarch64=('cargo' 'clang')
+ depends=('git' 'pacman' 'libalpm.so>=14')
+ optdepends=('bat: colored pkgbuild printing' 'devtools: build in chroot and downloading pkgbuilds')
+ sha256sums=('b9c67f1390caacc949c2eb2a254e8cf37778f382c3c6b8d057fa6feb6eaeb0f9')
+@@ -29,6 +30,10 @@ build () {
+     export CARGO_PROFILE_RELEASE_LTO=off
+   fi
+
++  if [[ $CARCH = aarch64 ]]; then
++    _features+="generate,"
++  fi
++
+   cargo build --frozen --features "${_features:-}" --release --target-dir target
+   ./scripts/mkmo locale/
+ }
+EOF
+git apply ./paru.patch
+makepkg -si --noconfirm
+cd ..
+rm -rf paru
+
+# Install the listed packages
+paru -S --needed --noconfirm \
+{{ range .packages.arch.pacman -}}
+  {{ . | quote }} \
+{{ end -}}
+{{ end -}}
