@@ -15,3 +15,12 @@ Library/
 {{- if not .isLinux }}
 .config/lazygit
 {{- end }}
+
+{{- /* Ignore everything besides basic configuration for non-personal device */ -}}
+{{- if not .isPersonalDevice }}
+*
+!.gitconfig
+!.tmux.conf
+!.vimrc
+!.zshrc
+{{- end }}

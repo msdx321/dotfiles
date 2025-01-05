@@ -4,10 +4,15 @@ encryption = "age"
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
+
 [data]
     osid = {{ $osid | quote }}
     isDarwin = {{ eq .chezmoi.os "darwin" }}
     isLinux = {{ eq .chezmoi.os "linux" }}
+    isPersonalDevice = {{ or
+        (eq .chezmoi.hostname "msdx321-ws" "msdx321-pc" "mbk-24-0346")
+        (eq .chezmoi.username "msdx321")
+    }}
     hasDesktop = {{ env "DESKTOP_SESSION" | not | not }}
 
 [age]
