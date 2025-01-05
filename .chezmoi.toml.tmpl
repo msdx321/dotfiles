@@ -4,9 +4,11 @@ encryption = "age"
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
-
 [data]
     osid = {{ $osid | quote }}
+    isDarwin = {{ eq .chezmoi.os "darwin" }}
+    isLinux = {{ eq .chezmoi.os "linux" }}
+    hasDesktop = {{ env "DESKTOP_SESSION" | not | not }}
 
 [age]
     command = "rage"

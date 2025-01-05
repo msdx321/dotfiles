@@ -99,7 +99,7 @@ zinit snippet PZT::modules/history/init.zsh
 # Asynchronous Plugin Loading
 zinit wait lucid for \
   OMZ::lib/git.zsh \
-{{- if eq .chezmoi.os "darwin" }}
+{{- if .isDarwin }}
   OMZ::plugins/brew/brew.plugin.zsh \
 {{- end}}
   OMZ::plugins/fancy-ctrl-z/fancy-ctrl-z.plugin.zsh \

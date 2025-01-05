@@ -1,15 +1,10 @@
-{{- /* Define variables for operating systems */ -}}
-{{- $isDarwin := eq .chezmoi.os "darwin" -}}
-{{- $isLinux := eq .chezmoi.os "linux" -}}
-{{- $hasDesktop := env "DESKTOP_SESSION" -}}
-
 {{- /* Conditionally include Library/ for non-Darwin systems */ -}}
-{{- if not $isDarwin }}
+{{- if not .isDarwin }}
 Library/
 {{- end }}
 
 {{- /* Conditionally include GTK and related configurations */ -}}
-{{- if or (not $isLinux) (not $hasDesktop) }}
+{{- if or (not .isLinux) (not .hasDesktop) }}
 .config/gtk-3.0
 .config/gtk-4.0
 .config/electron-flags.conf
@@ -17,6 +12,6 @@ Library/
 {{- end }}
 
 {{- /* Conditionally include lazygit configuration for non-Linux systems */ -}}
-{{- if not $isLinux }}
+{{- if not .isLinux }}
 .config/lazygit
 {{- end }}
