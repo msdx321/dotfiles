@@ -1,4 +1,4 @@
-{{ if or (eq .osid "linux-arch") (eq .osid "linux-archarm") -}}
+{{ if .isArch -}}
 #!/bin/bash
 
 sudo pacman -Syu --noconfirm

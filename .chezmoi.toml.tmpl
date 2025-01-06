@@ -9,6 +9,7 @@ encryption = "age"
     osid = {{ $osid | quote }}
     isDarwin = {{ eq .chezmoi.os "darwin" }}
     isLinux = {{ eq .chezmoi.os "linux" }}
+    isArch = {{ or (eq $osid "linux-arch") (eq $osid "linux-archarm") }}
     isPersonalDevice = {{ or
         (eq .chezmoi.hostname "msdx321-ws" "msdx321-pc" "mbk-24-0346")
         (eq .chezmoi.username "msdx321")
