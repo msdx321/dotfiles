@@ -5,9 +5,10 @@ Library/
 
 {{- /* Conditionally include GTK and related configurations */ -}}
 {{- if or (not .isLinux) (not .hasDesktop) }}
+.config/alacritty
+.config/electron-flags.conf
 .config/gtk-3.0
 .config/gtk-4.0
-.config/electron-flags.conf
 .local/share/fcitx5
 {{- end }}
 

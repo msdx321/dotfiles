@@ -1,0 +1,11 @@
+[window.dimensions]
+columns = 160
+lines = 40
+
+[selection] 
+save_to_clipboard = true
+
+[general]
+import = [
+    "~/.config/alacritty/tomorrow-night.toml"
+]
