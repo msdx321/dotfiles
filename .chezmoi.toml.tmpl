@@ -17,6 +17,14 @@ encryption = "age"
     }}
     hasDesktop = {{ env "DESKTOP_SESSION" | not | not }}
 
+[edit]
+{{- if .isWindows }}
+    command = "code"
+    args = ["--wait"]
+{{- else}}
+    command = "vim"
+{{- end}}
+
 [age]
     command = "rage"
     identity = "~/.ssh/id_ed25519"
