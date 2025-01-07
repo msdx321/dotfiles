@@ -1,0 +1,294 @@
+version: 7
+profiles:
+  - type: ssh
+    name: arch-orb
+    icon: fas fa-desktop
+    options:
+      host: mbk-24-0346
+      port: 32222
+      user: Arch
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    group: bbabbfd5-532e-40fa-a99a-b0e9a93e4c0f
+    id: ssh:custom:Arch-orb:813219ca-bf23-4ef7-ae24-52bea1892092
+    disableDynamicTitle: false
+groups:
+  - id: bbabbfd5-532e-40fa-a99a-b0e9a93e4c0f
+    name: OrbStack
+configSync:
+  parts: {}
+hotkeys:
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear: []
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-line:
+    - Ctrl-Shift-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-up:
+    - Alt-PageUp
+  scroll-down:
+    - Alt-PageDown
+  scroll-to-bottom:
+    - Ctrl-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab: {}
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - Ctrl-Shift-T
+  new-window:
+    - Ctrl-Shift-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - F11
+    - Alt-Enter
+  close-tab:
+    - Ctrl-Shift-W
+  reopen-tab:
+    - Ctrl-Shift-Z
+  toggle-last-tab: []
+  rename-tab:
+    - Ctrl-Shift-R
+  next-tab:
+    - Ctrl-Shift-Right
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Left
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  explode-tab:
+    - Ctrl-Shift-.
+  combine-tabs:
+    - Ctrl-Shift-,
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Ctrl-Shift-S
+  split-bottom:
+    - Ctrl-Shift-D
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - Ctrl-Alt-Right
+  pane-nav-down:
+    - Ctrl-Alt-Down
+  pane-nav-up:
+    - Ctrl-Alt-Up
+  pane-nav-left:
+    - Ctrl-Alt-Left
+  pane-nav-previous:
+    - Ctrl-Alt-[
+  pane-nav-next:
+    - Ctrl-Alt-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane: []
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector:
+    - Ctrl-Shift-E
+  command-selector:
+    - Ctrl-Shift-P
+  toggle-window:
+    - Ctrl-T
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: Tomorrow Night Eighties
+    foreground: '#cccccc'
+    background: '#2d2d2d'
+    cursor: '#cccccc'
+    colors:
+      - '#000000'
+      - '#f2777a'
+      - '#99cc99'
+      - '#ffcc66'
+      - '#6699cc'
+      - '#cc99cc'
+      - '#66cccc'
+      - '#ffffff'
+      - '#000000'
+      - '#f2777a'
+      - '#99cc99'
+      - '#ffcc66'
+      - '#6699cc'
+      - '#cc99cc'
+      - '#66cccc'
+      - '#ffffff'
+  customColorSchemes: []
+  profile: local:powershell
+  fontSize: 16
+  font: CaskaydiaCove NFM
+ssh:
+  knownHosts:
+    - host: contact.mpi-sws.org
+      port: 22
+      type: rsa-sha2-256
+      digest: Ou0WtV9tWAQ271uji/av+PP5PyGHiiJ2ph3TFublSx4=
+    - host: tock.mpi-sws.org
+      port: 22
+      type: rsa-sha2-256
+      digest: gUKeGbOxN04T90ZUOL/M1iUY7I+GnD1nnbSUvlXqwZw=
+    - host: 100.94.230.35
+      port: 32222
+      type: ecdsa-sha2-nistp256
+      digest: mf6kNjGGaTqibFyYdzn/eFtAcIaa/IAek1wh/Sy1biM=
+    - host: mbk-24-0346
+      port: 32222
+      type: ecdsa-sha2-nistp256
+      digest: mf6kNjGGaTqibFyYdzn/eFtAcIaa/IAek1wh/Sy1biM=
+clickableLinks: {}
+accessibility: {}
+appearance: {}
+hacks: {}
+providerBlacklist: []
+commandBlacklist: []
+enableAnalytics: false
+enableWelcomeTab: false
+pluginBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+profileBlacklist:
+  - local:clink
+  - local:cmd
+  - local:vs-cmd-2022
+  - local:git-bash
+  - local:default
+  - local:powershell
+  - socket:template
+  - serial:template
+  - serial:port-COM4
+  - ssh:template
+  - telnet:template
+  - openssh-config:contact-mpi
+  - openssh-config:mpi-proxy
+  - openssh-config:pi4-2-mpi
+  - openssh-config:tock-mpi
+recoverTabs: false
+trzszPlugin: {}

@@ -26,3 +26,15 @@ Library/
 !.vimrc
 !.zshrc
 {{- end }}
+
+{{- /* Conditionally include Windows configuration */ -}}
+{{- if not .isWindows}}
+Documents/
+AppData/
+{{- else}}
+*
+/*
+!Documents
+!AppData
+!.gitconfig
+{{- end}}
