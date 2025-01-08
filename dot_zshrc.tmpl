@@ -1,4 +1,11 @@
 # ----------------------------------
+# Enable Powerlevel10k Instant Prompt (must stay at the top)
+# ----------------------------------
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ----------------------------------
 # Basic Configuration
 # ----------------------------------
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
