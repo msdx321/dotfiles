@@ -18,7 +18,7 @@ encryption = "age"
     hasDesktop = {{ env "DESKTOP_SESSION" | not | not }}
 
 [edit]
-{{- if .isWindows }}
+{{- if eq .chezmoi.os "windows" }}
     command = "code"
     args = ["--wait"]
 {{- else}}
