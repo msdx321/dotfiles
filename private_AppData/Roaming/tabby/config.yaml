@@ -106,7 +106,8 @@ hotkeys:
     - Ctrl-,
   serial:
     - Alt-K
-  restart-serial-session: []
+  restart-serial-session:
+    - Ctrl-T
   new-tab:
     - Ctrl-Shift-T
   new-window:
@@ -241,7 +242,7 @@ terminal:
       - '#66cccc'
       - '#ffffff'
   customColorSchemes: []
-  profile: local:powershell
+  profile: local:powershell-core
   fontSize: 16
   font: CaskaydiaCove NFM
 ssh:
@@ -290,5 +291,14 @@ profileBlacklist:
   - openssh-config:mpi-proxy
   - openssh-config:pi4-2-mpi
   - openssh-config:tock-mpi
+  - local:msys2-mingw64
+  - local:msys2-msys
+  - local:msys2-ucrt64
+  - openssh-config:mpi-gitlab
+  - local:wsl
+  - serial:port-COM3
 recoverTabs: false
-trzszPlugin: {}
+trzszPlugin:
+  defaultUploadPath: C:\Users\msdx321\Desktop\
+  defaultDownloadPath: C:\Users\msdx321\Desktop\
+  enableDragUpload: true
