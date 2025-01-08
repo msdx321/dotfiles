@@ -25,6 +25,7 @@ Library/
 !.tmux.conf
 !.vimrc
 !.zshrc
+!.zimrc
 {{- end }}
 
 {{- /* Conditionally include Windows configuration */ -}}

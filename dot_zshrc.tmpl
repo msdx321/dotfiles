@@ -1,20 +1,18 @@
 # ----------------------------------
-# Enable Powerlevel10k Instant Prompt (must stay at the top)
+# Basic Configuration
 # ----------------------------------
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent quiet yes
 
-# ----------------------------------
-# Zinit Installation
-# ----------------------------------
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-  command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-    print -P "%F{33} %F{34}Installation successful.%f%b" || \
-    print -P "%F{160} The clone has failed.%f%b"
-fi
+FZF_TMUX=1
+FZF_TMUX_OPTS='-p80%'
+ZIM_HOME=~/.zim
+ZSH_CACHE_DIR=~/.zim/cache
+export EDITOR="vim"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ----------------------------------
 # TPM Installation
@@ -28,30 +26,27 @@ if [[ ! -f $HOME/.tmux/plugins/tpm/tpm ]]; then
 fi
 
 # ----------------------------------
-# Source Zinit and Autoload
+# zimfw section
 # ----------------------------------
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# Download zimfw plugin manager if missing.
+zstyle ':zim:zmodule' use 'degit'
+[[ ! -d $ZSH_CACHE_DIR ]] && command mkdir -p "$ZSH_CACHE_DIR"
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
 
-# ----------------------------------
-# Basic Configuration
-# ----------------------------------
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent quiet yes
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
 
-export EDITOR="vim"
-export FZF_TMUX=1
-export FZF_TMUX_OPTS='-p80%'
-export PATH="$HOME/.local/bin:$PATH"
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
 
 # ----------------------------------
 # Alias Configurations
 # ----------------------------------
-
 # Alias 'vim' to 'nvim' if 'nvim' is installed
 if [[ -n "$(command -v nvim)" ]]; then
   alias vim="nvim"
@@ -68,64 +63,6 @@ if [[ -n "$(command -v lazygit)" ]]; then
     fi
   }
 fi
-
-# ----------------------------------
-# Key Bindings
-# ----------------------------------
-# Use Emacs keybindings
-set -o emacs
-
-# ----------------------------------
-# Zinit Plugin Configurations
-# ----------------------------------
-
-# Load tmux module first
-zinit snippet PZT::modules/tmux/init.zsh
-
-# Load Zinit Annexes
-zinit light-mode for \
-  zdharma-continuum/zinit-annex-as-monitor \
-  zdharma-continuum/zinit-annex-bin-gem-node \
-  zdharma-continuum/zinit-annex-patch-dl \
-  zdharma-continuum/zinit-annex-rust
-
-# Load Prompt (Powerlevel10k)
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-
-# History module (PZT)
-zinit snippet PZT::modules/history/init.zsh
-
-# Asynchronous Plugin Loading
-zinit wait lucid for \
-  OMZ::lib/git.zsh \
-{{- if .isDarwin }}
-  OMZ::plugins/brew/brew.plugin.zsh \
-{{- end}}
-  OMZ::plugins/fancy-ctrl-z/fancy-ctrl-z.plugin.zsh \
-  OMZ::plugins/fasd/fasd.plugin.zsh \
-  OMZ::plugins/fzf/fzf.plugin.zsh \
-  OMZ::plugins/git/git.plugin.zsh \
-  OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh \
-  OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh \
-  OMZ::plugins/sudo/sudo.plugin.zsh \
-  PZT::modules/directory/init.zsh \
-  PZT::modules/helper/init.zsh \
-  Aloxaf/fzf-tab \
-  MohamedElashri/eza-zsh \
-  chrissicool/zsh-256color \
-  hlissner/zsh-autopair \
-  laggardkernel/zsh-thefuck \
-  wookayin/fzf-fasd \
-  zdharma-continuum/zui \
-  atinit"zmodload zsh/curses" \
-    zdharma-continuum/zinit-console \
-  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-  blockf \
-    zsh-users/zsh-completions \
-  atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
 
 # ----------------------------------
 # Load Powerlevel10k Configuration
