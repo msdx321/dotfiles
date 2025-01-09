@@ -1,6 +1,7 @@
 packages:
   darwin:
     brews:
+    - 'bat'
     - 'eza'
     - 'fasd'
     - 'fd'
@@ -24,6 +25,7 @@ packages:
     - 'tabby'
   arch:
     pacman:
+    - 'bat'
     - 'eza'
     - 'fasd'
     - 'fd'

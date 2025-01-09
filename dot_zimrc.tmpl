@@ -1,13 +1,13 @@
 zmodule sorin-ionescu/prezto --root modules/tmux --no-submodules
 
-zmodule ohmyzsh/ohmyzsh --root lib
+zmodule ohmyzsh/ohmyzsh --root lib --source git.zsh
+zmodule ohmyzsh/ohmyzsh --root lib --source compfix.zsh
 {{- if .isDarwin }}
 zmodule ohmyzsh/ohmyzsh --root plugins/brew
 {{- end}}
 zmodule ohmyzsh/ohmyzsh --root plugins/fancy-ctrl-z
 zmodule ohmyzsh/ohmyzsh --root plugins/fasd
 zmodule ohmyzsh/ohmyzsh --root plugins/fzf
-zmodule ohmyzsh/ohmyzsh --root plugins/git --fpath git
 zmodule ohmyzsh/ohmyzsh --root plugins/gpg-agent
 zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
@@ -15,10 +15,18 @@ zmodule sorin-ionescu/prezto --root modules/directory --no-submodules
 zmodule sorin-ionescu/prezto --root modules/helper --no-submodules
 zmodule sorin-ionescu/prezto --root modules/history --no-submodules
 zmodule Aloxaf/fzf-tab
+zmodule MichaelAquilina/zsh-you-should-use
 zmodule MohamedElashri/eza-zsh
+zmodule aubreypwd/zsh-plugin-reload
 zmodule chrissicool/zsh-256color
+zmodule davidde/git
+zmodule djui/alias-tips
+zmodule fdellwing/zsh-bat
 zmodule hlissner/zsh-autopair
 zmodule laggardkernel/zsh-thefuck
+zmodule mattmc3/zsh-safe-rm --use git
+zmodule momo-lab/zsh-replace-multiple-dots --source replace-multiple-dots.plugin.zsh
+zmodule nyoungstudios/zsh-history-on-success
 zmodule wookayin/fzf-fasd
 zmodule zsh-users/zsh-completions --fpath src
 zmodule msdx321/completion
