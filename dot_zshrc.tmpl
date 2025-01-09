@@ -9,17 +9,18 @@ fi
 # Basic Configuration
 # ----------------------------------
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':omz:plugins:ssh-agent' agent-forwarding 'yes'
+zstyle ':omz:plugins:ssh-agent' quiet 'yes'
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent quiet yes
+zstyle ':zim:zmodule' use 'degit'
 
 FZF_TMUX=1
 FZF_TMUX_OPTS='-p80%'
 ZIM_HOME=~/.zim
 ZSH_CACHE_DIR=~/.cache/zim
-export EDITOR="vim"
-export PATH="$HOME/.local/bin:$PATH"
+EDITOR="vim"
+PATH="$HOME/.local/bin:$PATH"
 
 bindkey -e
 
@@ -38,7 +39,6 @@ fi
 # zimfw section
 # ----------------------------------
 # Download zimfw plugin manager if missing.
-zstyle ':zim:zmodule' use 'degit'
 [[ ! -d $ZSH_CACHE_DIR ]] && command mkdir -p "$ZSH_CACHE_DIR"
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \

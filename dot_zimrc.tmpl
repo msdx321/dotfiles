@@ -1,6 +1,6 @@
 zmodule sorin-ionescu/prezto --root modules/tmux --no-submodules
 
-zmodule ohmyzsh/ohmyzsh -s lib/git.zsh
+zmodule ohmyzsh/ohmyzsh --root lib
 {{- if .isDarwin }}
 zmodule ohmyzsh/ohmyzsh --root plugins/brew
 {{- end}}
