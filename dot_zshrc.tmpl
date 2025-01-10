@@ -19,7 +19,11 @@ FZF_TMUX=1
 FZF_TMUX_OPTS='-p80%'
 ZIM_HOME=~/.zim
 ZSH_CACHE_DIR=~/.cache/zim
+{{- if lookPath "nvim" }}
+EDITOR="nvim"
+{{- else }}
 EDITOR="vim"
+{{- end }}
 PATH="$HOME/.local/bin:$PATH"
 
 bindkey -e

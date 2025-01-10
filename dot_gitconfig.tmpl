@@ -5,7 +5,11 @@
 [color]
 	ui = auto
 [core]
-	editor = vim
+{{- if lookPath "nvim" }}
+	editor = nvim
+{{- else }}
+  editor = vim
+{{- end }}
 [credential]
 	helper = store
 [alias]
@@ -16,6 +20,6 @@
 	gpgsign = true
 [gpg]
 	format = ssh
-{{- end}}
+{{- end }}
 [push]
 	autoSetupRemote = true
