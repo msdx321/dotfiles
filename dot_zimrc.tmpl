@@ -24,7 +24,9 @@ zmodule djui/alias-tips
 zmodule fdellwing/zsh-bat
 zmodule hlissner/zsh-autopair
 zmodule laggardkernel/zsh-thefuck
+{{- if or .hasDesktop .isDarwin }}
 zmodule mattmc3/zsh-safe-rm --use git
+{{- end}}
 zmodule momo-lab/zsh-replace-multiple-dots --source replace-multiple-dots.plugin.zsh
 zmodule msdx321/fzf-glue
 zmodule nyoungstudios/zsh-history-on-success
