@@ -65,6 +65,11 @@ if [[ -n "$(command -v nvim)" ]]; then
   alias vim="nvim"
 fi
 
+# Alias 'helix' to 'hx' if 'helix' is the binary
+if [[ -n "$(command -v nvim)" ]]; then
+  alias hx="helix"
+fi
+
 # Alias 'git' to 'lazygit' when no arguments are provided, if 'lazygit' is installed
 if [[ -n "$(command -v lazygit)" ]]; then
   git() {
