@@ -13,9 +13,13 @@ Library/
 .local/share/fcitx5
 {{- end }}
 
-{{- /* Conditionally include lazygit configuration for non-Linux systems */ -}}
-{{- if not .isLinux }}
+{{- /* Conditionally exclude softwares not installed */ -}}
+{{- if not (or (lookPath "hx") (lookPath "helix")) }}
+.config/helix
+{{- else if not (lookPath "lazygit") }}
 .config/lazygit
+{{- else if not (lookPath "nvim") }}
+.config/nvim
 {{- end }}
 
 {{- /* Ignore everything besides basic configuration for non-personal device */ -}}
@@ -32,11 +36,11 @@ Library/
 {{- if not .isWindows}}
 Documents/
 AppData/
-{{- else}}
+{{- else }}
 *
 /*
 !.gitconfig
 !.ssh
 !AppData
 !Documents
-{{- end}}
+{{- end }}
