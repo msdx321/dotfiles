@@ -34,6 +34,9 @@ set -s set-clipboard on
 set -g set-titles on
 set -g set-titles-string '#{host_short} - #{pane_current_command}'
 
+# Turn off desotry on unattched
+set-option -g destroy-unattached off
+
 # ---------------------
 # Status Bar Settings
 # ---------------------
