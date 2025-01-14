@@ -33,7 +33,7 @@ zmodule nyoungstudios/zsh-history-on-success
 zmodule wookayin/fzf-fasd
 zmodule zsh-users/zsh-completions --fpath src
 {{- if stat (joinPath .chezmoi.homeDir ".local/share/zsh/generated_man_completions") }}
-zmodule /home/msdx321/.local/share/zsh --fpath generated_man_completions
+zmodule {{ .chezmoi.homeDir }}/.local/share/zsh --fpath generated_man_completions
 {{- end }}
 zmodule msdx321/completion
 zmodule zsh-users/zsh-syntax-highlighting
