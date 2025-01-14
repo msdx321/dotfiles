@@ -16,7 +16,7 @@ Library/
 {{- /* Conditionally exclude softwares not installed */ -}}
 {{- if not (or (lookPath "hx") (lookPath "helix")) }}
 .config/helix
-{{- else if not (lookPath "lazygit") }}
+{{- else if or (not (lookPath "lazygit")) .isDarwin }}
 .config/lazygit
 {{- else if not (lookPath "nvim") }}
 .config/nvim
