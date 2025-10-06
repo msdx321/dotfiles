@@ -4,3 +4,4 @@ os:
 git:
   commit:
     signOff: true
+  overrideGpg: true
