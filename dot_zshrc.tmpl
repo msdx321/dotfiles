@@ -83,6 +83,14 @@ if [[ -n "$(command -v lazygit)" ]]; then
   }
 fi
 
+{{ if eq .chezmoi.os "darwin" -}}
+compress_dir() {
+    local dir="${1:-eval-results}"
+    find "$dir" -type f -print0 | xargs -0 -n 1 -P 8 sudo afsctool -c
+}
+
+{{ end -}}
+
 # ----------------------------------
 # Load Powerlevel10k Configuration
 # ----------------------------------

@@ -18,14 +18,14 @@ set -g pane-base-index 1
 set -sg escape-time 10
 
 # Auto renumbering of windows
-set-option -g renumber-windows on
+set -g renumber-windows on
 
 # Bindings for splitting panes in the current path
 bind % split-window -h -c "#{pane_current_path}"
 bind '"' split-window -v -c "#{pane_current_path}"
 
 # Enable TrueColor
-set-option -sa terminal-overrides ',xterm-256color:RGB'
+set -sa terminal-overrides ',xterm-256color:RGB'
 
 # Enable OSC-52 clipboard
 set -s set-clipboard on
@@ -35,7 +35,7 @@ set -g set-titles on
 set -g set-titles-string '#{host_short} - #{pane_current_command}'
 
 # Turn off desotry on unattched
-set-option -g destroy-unattached off
+set -g destroy-unattached off
 
 # ---------------------
 # Status Bar Settings
