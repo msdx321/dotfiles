@@ -1,5 +1,11 @@
 zmodule sorin-ionescu/prezto --root modules/tmux --no-submodules
 
+zmodule zsh-users/zsh-completions --fpath src
+{{- if stat (joinPath .chezmoi.homeDir ".local/share/zsh/generated_man_completions") }}
+zmodule {{ .chezmoi.homeDir }}/.local/share/zsh --fpath generated_man_completions
+{{- end }}
+zmodule completion
+
 zmodule ohmyzsh/ohmyzsh --root lib --source git.zsh
 zmodule ohmyzsh/ohmyzsh --root lib --source compfix.zsh
 {{- if .isDarwin }}
@@ -9,6 +15,7 @@ zmodule ohmyzsh/ohmyzsh --root plugins/fancy-ctrl-z
 zmodule ohmyzsh/ohmyzsh --root plugins/fasd
 zmodule ohmyzsh/ohmyzsh --root plugins/fzf
 zmodule ohmyzsh/ohmyzsh --root plugins/gpg-agent
+zmodule ohmyzsh/ohmyzsh --root plugins/npm
 zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
 zmodule sorin-ionescu/prezto --root modules/directory --no-submodules
@@ -23,6 +30,7 @@ zmodule davidde/git
 zmodule fdellwing/zsh-bat
 zmodule hlissner/zsh-autopair
 zmodule laggardkernel/zsh-thefuck
+zmodule ntnyq/omz-plugin-pnpm
 {{- if or .hasDesktop .isDarwin }}
 zmodule mattmc3/zsh-safe-rm --use git
 {{- end}}
@@ -30,11 +38,6 @@ zmodule momo-lab/zsh-replace-multiple-dots --source replace-multiple-dots.plugin
 zmodule msdx321/fzf-glue
 zmodule msdx321/zsh-history-on-success
 zmodule wookayin/fzf-fasd
-zmodule zsh-users/zsh-completions --fpath src
-{{- if stat (joinPath .chezmoi.homeDir ".local/share/zsh/generated_man_completions") }}
-zmodule {{ .chezmoi.homeDir }}/.local/share/zsh --fpath generated_man_completions
-{{- end }}
-zmodule msdx321/completion
 zmodule wintermi/zsh-rust
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions

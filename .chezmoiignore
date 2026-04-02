@@ -1,9 +1,9 @@
-{{- /* Conditionally include Library/ for non-Darwin systems */ -}}
+{{- /* Exclude macOS-only paths on non-Darwin systems. */ -}}
 {{- if not .isDarwin }}
 Library/
 {{- end }}
 
-{{- /* Conditionally include GTK and related configurations */ -}}
+{{- /* Exclude desktop-only Linux config when not on a Linux desktop. */ -}}
 {{- if or (not .isLinux) (not .hasDesktop) }}
 .config/alacritty
 .config/electron-flags.conf
@@ -13,16 +13,18 @@ Library/
 .local/share/fcitx5
 {{- end }}
 
-{{- /* Conditionally exclude softwares not installed */ -}}
+{{- /* Exclude app configs when the corresponding app is not installed. */ -}}
 {{- if not (or (lookPath "hx") (lookPath "helix")) }}
 .config/helix
-{{- else if or (not (lookPath "lazygit")) .isDarwin }}
+{{- end }}
+{{- if or (not (lookPath "lazygit")) .isDarwin }}
 .config/lazygit
-{{- else if not (lookPath "nvim") }}
+{{- end }}
+{{- if not (lookPath "nvim") }}
 .config/nvim
 {{- end }}
 
-{{- /* Ignore everything besides basic configuration for non-personal device */ -}}
+{{- /* Keep only a minimal shell/git baseline on non-personal devices. */ -}}
 {{- if not .isPersonalDevice }}
 *
 !.gitconfig
@@ -32,8 +34,8 @@ Library/
 !.zimrc
 {{- end }}
 
-{{- /* Conditionally include Windows configuration */ -}}
-{{- if not .isWindows}}
+{{- /* Exclude Windows-only paths on non-Windows systems. */ -}}
+{{- if not .isWindows }}
 Documents/
 AppData/
 {{- else }}

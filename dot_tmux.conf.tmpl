@@ -14,6 +14,10 @@ unbind -n MouseDown3Pane
 set -g base-index 1
 set -g pane-base-index 1
 
+# Use the user's shell for new panes and windows so package manager setup stays consistent.
+set -g default-shell "${SHELL}"
+set -g default-command "${SHELL} -l"
+
 # Change escape delay
 set -sg escape-time 10
 
