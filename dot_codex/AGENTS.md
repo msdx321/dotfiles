@@ -1,0 +1,5 @@
+- For paper writing, I want to avoid em-dashes. Try to avoid using rhetorical fluzzy and state things in clear and concise way.
+- For Python projects, I tend to use `uv` to manage the project, dependencies, and commands.
+- When writing Rust code, use idiomatic Rust. Prefer iterators, pattern matching where it adds clarity, and standard library APIs.
+- Avoid C-like Rust code such as manual index-heavy loops, unnecessary mutable state, and verbose control flow when a more idiomatic approach exists.
+- For Rust code changes, run `cargo fmt` and `cargo clippy --all-targets --all-features -- -D warnings`, and fix any issues they report.

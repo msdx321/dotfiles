@@ -1,0 +1,18 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+
+[features]
+multi_agent = true
+
+[mcp_servers.arxiv-mcp-server]
+command = "uv"
+args = ["tool", "run", "arxiv-mcp-server", "--storage-path", "~/Downloads/"]
+startup_timeout_ms = 20_000
+enabled = false
+
+[mcp_servers.smart-tree]
+command = "st"
+args = ["--mcp"]
+startup_timeout_ms = 20_000
+enabled = true
