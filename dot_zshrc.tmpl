@@ -1,21 +1,27 @@
 # ----------------------------------
-# Enable Powerlevel10k Instant Prompt (must stay at the top)
+# Prompt bootstrap
 # ----------------------------------
+# Powerlevel10k instant prompt must stay at the top.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # ----------------------------------
-# Basic Configuration
+# Shell behavior and styles
 # ----------------------------------
+bindkey -e
+
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':omz:plugins:ssh-agent' agent-forwarding 'yes'
 zstyle ':omz:plugins:ssh-agent' quiet 'yes'
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'no'
+zstyle ':prezto:module:tmux:auto-start' remote 'no'
 zstyle ':prezto:module:tmux:session' name '{{ .chezmoi.os }}'
 zstyle ':zim:zmodule' use 'degit'
 
+# ----------------------------------
+# Environment
+# ----------------------------------
 FZF_TMUX=1
 FZF_TMUX_OPTS='-p80%'
 ZIM_HOME=~/.zim
@@ -27,11 +33,10 @@ EDITOR="vim"
 {{- end }}
 PATH="$HOME/.local/bin:$PATH"
 
-bindkey -e
-
 # ----------------------------------
-# TPM Installation
+# Tool bootstrap
 # ----------------------------------
+# Install TPM if missing.
 if [[ ! -f $HOME/.tmux/plugins/tpm/tpm ]]; then
   print -P "%F{33} %F{220}Installing TPM"
   command mkdir -p "$HOME/.tmux/plugins" && command chmod g-rwX "$HOME/.tmux/plugins"
@@ -40,16 +45,16 @@ if [[ ! -f $HOME/.tmux/plugins/tpm/tpm ]]; then
     print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# ----------------------------------
-# zimfw section
-# ----------------------------------
-# Download zimfw plugin manager if missing.
+# Download zimfw if missing.
 [[ ! -d $ZSH_CACHE_DIR ]] && command mkdir -p "$ZSH_CACHE_DIR"
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
       https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
 
+# ----------------------------------
+# Plugin manager initialization
+# ----------------------------------
 # Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
@@ -59,25 +64,21 @@ fi
 source ${ZIM_HOME}/init.zsh
 
 # ----------------------------------
-# Alias Configurations
+# Command shortcuts and wrappers
 # ----------------------------------
-# Alias 'vim' to 'nvim' if 'nvim' is installed
-if [[ -n "$(command -v nvim)" ]]; then
+if (( $+commands[nvim] )); then
   alias vim="nvim"
 fi
 
-# Alias 'helix' to 'hx' if 'helix' is the binary
-if [[ -n "$(command -v helix)" ]]; then
+if (( $+commands[helix] )); then
   alias hx="helix"
 fi
 
-# Alias 'git' to 'lazygit' when no arguments are provided, if 'lazygit' is installed
-if [[ -n "$(command -v lazygit)" ]]; then
+if (( $+commands[lazygit] )); then
   git() {
     if [[ $# -eq 0 ]]; then
       lazygit
     else
-      # Use the original 'git' command for all other cases
       command git "$@"
     fi
   }
@@ -92,9 +93,8 @@ compress_dir() {
 {{ end -}}
 
 # ----------------------------------
-# Load Powerlevel10k Configuration
+# Prompt configuration
 # ----------------------------------
-# Load Powerlevel10k configuration if it exists
 if [[ -f ~/.p10k.zsh ]]; then
   source ~/.p10k.zsh
 fi

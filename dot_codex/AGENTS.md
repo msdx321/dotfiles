@@ -3,3 +3,4 @@
 - When writing Rust code, use idiomatic Rust. Prefer iterators, pattern matching where it adds clarity, and standard library APIs.
 - Avoid C-like Rust code such as manual index-heavy loops, unnecessary mutable state, and verbose control flow when a more idiomatic approach exists.
 - For Rust code changes, run `cargo fmt` and `cargo clippy --all-targets --all-features -- -D warnings`, and fix any issues they report.
+- Don't add #[test] or other test unless I said so.
