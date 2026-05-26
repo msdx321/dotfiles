@@ -1,12 +1,13 @@
-# Core shell integration
-zmodule sorin-ionescu/prezto --root modules/tmux --no-submodules
-
-# Completion
+# Completion (must load first — runs compinit before OMZ plugins call compdef)
 zmodule zsh-users/zsh-completions --fpath src
 {{- if stat (joinPath .chezmoi.homeDir ".local/share/zsh/generated_man_completions") }}
 zmodule {{ .chezmoi.homeDir }}/.local/share/zsh --fpath generated_man_completions
 {{- end }}
 zmodule completion
+
+# Oh My Zsh core libraries
+zmodule ohmyzsh/ohmyzsh --root lib --source directories.zsh
+zmodule ohmyzsh/ohmyzsh --root lib --source history.zsh
 
 # Oh My Zsh libraries and plugins
 zmodule ohmyzsh/ohmyzsh --root lib --source git.zsh
@@ -21,11 +22,8 @@ zmodule ohmyzsh/ohmyzsh --root plugins/gpg-agent
 zmodule ohmyzsh/ohmyzsh --root plugins/npm
 zmodule ohmyzsh/ohmyzsh --root plugins/ssh-agent
 zmodule ohmyzsh/ohmyzsh --root plugins/sudo
-
-# Prezto modules
-zmodule sorin-ionescu/prezto --root modules/directory --no-submodules
-zmodule sorin-ionescu/prezto --root modules/helper --no-submodules
-zmodule sorin-ionescu/prezto --root modules/history --no-submodules
+zmodule ohmyzsh/ohmyzsh --root plugins/tmux
+zmodule ohmyzsh/ohmyzsh --root plugins/history
 
 # Navigation, completion, and shell UX
 zmodule Aloxaf/fzf-tab
