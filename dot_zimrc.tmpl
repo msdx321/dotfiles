@@ -1,4 +1,4 @@
-# Completion (must load first — runs compinit before OMZ plugins call compdef)
+# Completion
 zmodule zsh-users/zsh-completions --fpath src
 {{- if stat (joinPath .chezmoi.homeDir ".local/share/zsh/generated_man_completions") }}
 zmodule {{ .chezmoi.homeDir }}/.local/share/zsh --fpath generated_man_completions
@@ -43,7 +43,6 @@ zmodule momo-lab/zsh-replace-multiple-dots --source replace-multiple-dots.plugin
 zmodule msdx321/fzf-glue
 zmodule msdx321/zsh-history-on-success
 zmodule wookayin/fzf-fasd
-zmodule wintermi/zsh-rust
 
 # Interactive assistance
 zmodule zsh-users/zsh-autosuggestions

@@ -4,6 +4,8 @@
 - Avoid C-like Rust code such as manual index-heavy loops, unnecessary mutable state, and verbose control flow when a more idiomatic approach exists.
 - For Rust code changes, run `cargo fmt` and `cargo clippy --all-targets --all-features -- -D warnings`, and fix any issues they report.
 - Don't add #[test] or other test unless I said so.
+- Don't do TDD develop unless it's unnessary.
+- When doing git commit, prior small, clean multiple commits rather than a big giant one.
 
 Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
 
@@ -69,3 +71,13 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
+<!-- CODEGRAPH_START -->
+## CodeGraph
+
+In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
+
+- **MCP tool** (when available): `codegraph_explore` answers most code questions in one call — the relevant symbols' verbatim source plus the call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol in the query to read its current line-numbered source. If it's listed but deferred, load it by name via tool search.
+- **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
+
+If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
+<!-- CODEGRAPH_END -->

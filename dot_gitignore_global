@@ -1,6 +1,9 @@
 .claude/
 .codanna/
+.codex/
+.codegraph/
 .fastembed_cache/
 .claude_consciousness.m8
+.omo/
 AGENTS.md
 CLAUDE.md
