@@ -5,6 +5,10 @@
 Include ~/.orbstack/ssh/config
 
 {{ end -}}
+{{- $mpiProxy := "ProxyJump contact-mpi" -}}
+{{- if .isDarwin -}}
+{{- $mpiProxy = "ProxyCommand nc -X 5 -x 127.0.0.1:5354 %h %p" -}}
+{{- end -}}
 Host mpi-gitlab
     HostName gitlab.mpi-sws.org
     User git-rtw
@@ -30,25 +34,39 @@ Host tock-mpi
     User biteye
     IdentityFile ~/.ssh/mpi_key
     Port 22
-    ProxyJump contact-mpi
+    {{ $mpiProxy }}
 
 Host pi4-2-mpi
     HostName rts-pi4-2.mpi-sws.org
     User biteye
     IdentityFile ~/.ssh/mpi_key
     Port 22
-    ProxyJump contact-mpi
+    {{ $mpiProxy }}
 
 Host pi5-1-mpi
     HostName rts-pi5-1.mpi-sws.org
     User biteye
     IdentityFile ~/.ssh/mpi_key
     Port 22
-    ProxyJump contact-mpi
+    {{ $mpiProxy }}
 
 Host pi5-2-mpi
     HostName rts-pi5-2.mpi-sws.org
     User biteye
     IdentityFile ~/.ssh/mpi_key
     Port 22
-    ProxyJump contact-mpi
+    {{ $mpiProxy }}
+
+Host thor-mpi
+    HostName rts-thor.mpi-sws.org
+    User biteye
+    IdentityFile ~/.ssh/mpi_key
+    Port 22
+    {{ $mpiProxy }}
+
+Host malizia-mpi
+    HostName malizia.mpi-sws.org
+    User biteye
+    IdentityFile ~/.ssh/mpi_key
+    Port 22
+    {{ $mpiProxy }}
