@@ -6,6 +6,7 @@
 - Don't add #[test] or other test unless I said so.
 - Don't do TDD develop unless it's unnessary.
 - When doing git commit, prior small, clean multiple commits rather than a big giant one.
+- By default, use Conventional Commits for git commit messages, such as `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, and `test:`, unless the project specifies another format.
 
 Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
 
