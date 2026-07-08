@@ -30,7 +30,7 @@ read_only_style = "prompt_red"
 truncation_length = 8
 truncate_to_repo = false
 truncation_symbol = ""
-read_only = " 🔒"
+read_only = " ro"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
@@ -76,9 +76,11 @@ vimcmd_replace_one_symbol = "[▶](bold green)"
 [status]
 disabled = false
 format = "[$symbol$status]($style) "
-symbol = "✘"
-signal_symbol = "✘"
-sigint_symbol = "✘"
+symbol = "!"
+not_executable_symbol = "!"
+not_found_symbol = "?"
+signal_symbol = "!"
+sigint_symbol = "^C"
 style = "red"
 map_symbol = true
 recognize_signal_code = true
