@@ -1,12 +1,4 @@
 # ----------------------------------
-# Prompt bootstrap
-# ----------------------------------
-# Powerlevel10k instant prompt must stay at the top.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# ----------------------------------
 # Shell behavior and styles
 # ----------------------------------
 bindkey -e
@@ -99,6 +91,12 @@ compress_dir() {
 # ----------------------------------
 # Prompt configuration
 # ----------------------------------
-if [[ -f ~/.p10k.zsh ]]; then
-  source ~/.p10k.zsh
+if (( $+commands[starship] )); then
+  STARSHIP_INIT="${XDG_CACHE_HOME:-$HOME/.cache}/starship/init.zsh"
+  if [[ ! $STARSHIP_INIT -nt $commands[starship] || ! $STARSHIP_INIT.zwc -nt $STARSHIP_INIT ]]; then
+    command mkdir -p "${STARSHIP_INIT:h}"
+    starship init zsh >| "$STARSHIP_INIT"
+    zcompile "$STARSHIP_INIT"
+  fi
+  source "$STARSHIP_INIT"
 fi
